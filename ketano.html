@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Webpage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f8ff;
+            color: #26344d;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px 7%;
+            background: linear-gradient(
+                120deg,
+                #e5f0ff 0%,
+                #ffffff 20%,
+                #ffffff 80%,
+                #d6e8ff 100%
+            );
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            gap: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 38px;
+        }
+
+        .logo h1 {
+            font-size: 27px;
+            color: #0b1933;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #0866ed;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #14213d;
+            font-size: 17px;
+            font-weight: 500;
+            padding-bottom: 7px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #0866ed;
+            border-bottom: 3px solid #0866ed;
+        }
+
+        .get-started {
+            background: #0866ed;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 15px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .get-started:hover {
+            background: #004bb5;
+            transform: translateY(-2px);
+        }
+
+        main {
+            width: min(1100px, 86%);
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 80px 0;
+            scroll-margin-top: 24px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 48px;
+            min-height: 420px;
+        }
+
+        .eyebrow {
+            color: #0866ed;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .hero h2,
+        section h2 {
+            color: #0b1933;
+            line-height: 1.2;
+        }
+
+        .hero h2 {
+            margin: 12px 0 18px;
+            font-size: clamp(38px, 6vw, 60px);
+        }
+
+        .hero p,
+        .article-copy {
+            max-width: 680px;
+            color: #53627a;
+            font-size: 18px;
+        }
+
+        .hero-card {
+            padding: 32px;
+            border: 1px solid #dce7f8;
+            border-radius: 24px;
+            background: white;
+            box-shadow: 0 18px 45px rgba(26, 65, 125, 0.1);
+        }
+
+        .hero-card strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #0b1933;
+            font-size: 20px;
+        }
+
+        .content-section {
+            padding: 42px;
+            border-radius: 24px;
+            background: white;
+            box-shadow: 0 12px 35px rgba(26, 65, 125, 0.07);
+        }
+
+        section h2 {
+            margin: 8px 0 18px;
+            font-size: 34px;
+        }
+
+        .gallery-image {
+            display: block;
+            width: 100%;
+            max-height: 480px;
+            margin-top: 24px;
+            border-radius: 18px;
+            object-fit: cover;
+        }
+
+        .attribution {
+            margin-top: 10px;
+            color: #65738a;
+            font-size: 14px;
+        }
+
+        .attribution a {
+            color: #0866ed;
+        }
+
+        .message-button {
+            margin-top: 22px;
+            padding: 13px 22px;
+            border: 0;
+            border-radius: 30px;
+            background: #0866ed;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .message-button:hover {
+            transform: translateY(-2px);
+            background: #004bb5;
+        }
+
+        .message-button:focus-visible,
+        nav a:focus-visible,
+        .attribution a:focus-visible {
+            outline: 3px solid #8bb9ff;
+            outline-offset: 4px;
+        }
+
+        #welcome-message {
+            margin-top: 16px;
+            color: #14532d;
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 24px 7%;
+            background: #eaf1fc;
+            color: #53627a;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .logo h1 {
+                font-size: 22px;
+            }
+
+            main {
+                width: min(100% - 32px, 680px);
+            }
+
+            section {
+                padding: 48px 0;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .content-section {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <div class="logo-icon">👥</div>
+            <h1>Collaborative <span>Webpage</span></h1>
+        </div>
+
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="get-started"
+                onclick="window.location.href='#about'">
+            Get Started →
+        </button>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div>
+                <p class="eyebrow">Ideas grow together</p>
+                <h2>A space to create, share, and connect.</h2>
+                <p>Welcome to our collaborative webpage. Explore the story, meet the team, and find inspiration for your next great idea.</p>
+            </div>
+            <aside class="hero-card">
+                <strong>Made for collaboration</strong>
+                <p>Good things happen when people bring their perspectives together. Use this page to share ideas and celebrate what you can build as a team.</p>
+            </aside>
+        </section>
+
+        <section id="about">
+            <article class="content-section">
+                <p class="eyebrow">About us</p>
+                <h2>Every great project starts with a conversation.</h2>
+                <p class="article-copy">Placeholder text: This section is a starting point for a longer article about the people, ideas, and shared goals behind this project. Add your own story here—describe what inspired the work, what the team hopes to accomplish, and how visitors can take part.</p>
+            </article>
+        </section>
+
+        <section id="gallery">
+            <div class="content-section">
+                <p class="eyebrow">Gallery</p>
+                <h2>Better ideas, built together.</h2>
+                <p class="article-copy">A glimpse of a team sharing ideas and working through a project together.</p>
+                <img
+                    class="gallery-image"
+                    src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"
+                    alt="A collaborative team meeting around a table"
+                >
+                <p class="attribution">Photo by <a href="https://unsplash.com/@anniespratt" target="_blank" rel="noopener noreferrer">Annie Spratt</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">Unsplash</a>.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="content-section">
+                <p class="eyebrow">Get involved</p>
+                <h2>Start a conversation.</h2>
+                <p class="article-copy">Have an idea to share? Use the button to reveal a welcome message.</p>
+                <button class="message-button" id="message-button" type="button" aria-expanded="false" aria-controls="welcome-message">
+                    Show welcome message
+                </button>
+                <p id="welcome-message" hidden>Thanks for stopping by. We’re glad you’re here!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">Built with creativity and collaboration.</footer>
+
+    <script>
+        const messageButton = document.querySelector("#message-button");
+        const welcomeMessage = document.querySelector("#welcome-message");
+
+        messageButton.addEventListener("click", () => {
+            const isExpanded = messageButton.getAttribute("aria-expanded") === "true";
+            messageButton.setAttribute("aria-expanded", String(!isExpanded));
+            messageButton.textContent = isExpanded
+                ? "Show welcome message"
+                : "Hide welcome message";
+            welcomeMessage.hidden = isExpanded;
+        });
+    </script>
+
+</body>
+</html>
