@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Webpage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px 7%;
+            background: linear-gradient(
+                120deg,
+                #e5f0ff 0%,
+                #ffffff 20%,
+                #ffffff 80%,
+                #d6e8ff 100%
+            );
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            gap: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 38px;
+        }
+
+        .logo h1 {
+            font-size: 27px;
+            color: #0b1933;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #0866ed;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #14213d;
+            font-size: 17px;
+            font-weight: 500;
+            padding-bottom: 7px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #0866ed;
+            border-bottom: 3px solid #0866ed;
+        }
+
+        .get-started {
+            background: #0866ed;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 15px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .get-started:hover {
+            background: #004bb5;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .logo h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <div class="logo-icon">👥</div>
+            <h1>Collaborative <span>Webpage</span></h1>
+        </div>
+
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="get-started"
+                onclick="window.location.href='#about'">
+            Get Started →
+        </button>
+    </header>
+
+    <main>
+        <section id="home"></section>
+        <section id="about"></section>
+        <section id="gallery"></section>
+        <section id="contact"></section>
+    </main>
+
+</body>
+</html>
